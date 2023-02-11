@@ -195,7 +195,6 @@ public class MovieCollection
 
         System.out.print("Enter the number of the cast member: ");
         int castMemberNum = scanner.nextInt() - 1;
-        scanner.nextLine();
         String castMember = results.get(castMemberNum);
 
         ArrayList<String> movieTitles = new ArrayList<String>();
@@ -375,7 +374,7 @@ public class MovieCollection
             while (index < highestRatedMovies.size()) {
                 if (movie.getUserRating() > highestRatedMovies.get(index).getUserRating())
                 {
-                    break;
+                   break;
                 }
                 index++;
             }
@@ -412,11 +411,10 @@ public class MovieCollection
         for (Movie movie : movies) {
             int index = 0;
             while (index < highestRevenueMovies.size()) {
-                if (movie.getRevenue() > highestRevenueMovies.get(index).getRevenue())
+                if (!(movie.getRevenue() > highestRevenueMovies.get(index).getRevenue()))
                 {
-                    break;
+                    index++;
                 }
-                index++;
             }
             highestRevenueMovies.add(index, movie);
             if (highestRevenueMovies.size() > 50) {
